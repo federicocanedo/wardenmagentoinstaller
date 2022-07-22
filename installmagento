@@ -77,7 +77,7 @@ def modifyEnv(v):
 	if "elasticsearch" in versions[v]:
 		os.system(f"{sed_i} 's/ELASTICSEARCH_VERSION=7.6/ELASTICSEARCH_VERSION={versions[v]['elasticsearch']}/g' .env")
 	else:
-		os.system(f"{sed_i} 's/ELASTICSEARCH_VERSION=7.6/ELASTICSEARCH_VERSION=0/g' .env")
+		os.system(f"{sed_i} 's/WARDEN_ELASTICSEARCH=1/WARDEN_ELASTICSEARCH=0/g' .env")
 
 
 def main():
