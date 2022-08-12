@@ -200,7 +200,7 @@ def main():
 	ngrok = argument.ngrok
 	sampledata = argument.sampledata
 
-	if ( not(domain and ngrok) or not(domain and magentoVersion)):
+	if ( not(domain and ngrok) and not(domain and magentoVersion)):
 		menu()
 		return
 
