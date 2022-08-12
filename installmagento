@@ -77,7 +77,7 @@ def menuInstallation(domain):
 	if option == "2": os.system("warden env up")
 	if option == "3": os.system("warden env stop")
 	if option == "4": ngrokInstaller(domain, input("Input your ngrok token:\n").split("\n")[0])
-	if option == "5": ngrokRemove(domain)
+	if option == "5": ngrokRemove(domain.split("\n")[0])
 	if option == "6": os.system(f"warden env down -v; cd ..; rm -rf {domain}")
 
 def wardenSetup(domain, version):
@@ -139,7 +139,7 @@ def getBaseUrl(domain):
 
 def ngrokRemove(domain):
 	os.system(f"docker exec {domain}_nginx_1 /bin/bash -c 'cd; killall ngrok; rm tunnels ngrok-v3-stable-linux-amd64.tgz'")
-	setBaseUrl(domain, f"https://{domain}.test")
+	setBaseUrl(domain, f"https://app.{domain}.test/")
 
 def ngrokInstaller(domain, ngrokToken):
     os.system(f"docker exec {domain}_nginx_1 /bin/bash -c 'cd; killall ngrok; rm tunnels ngrok-v3-stable-linux-amd64.tgz'")
